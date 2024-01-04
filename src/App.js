@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MyFooter from "./components/MyFooter";
+import MyHeader from "./components/MyHeader";
 
 function App() {
+  let name = "임승진  ";
+  const number = 5;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MyHeader />
+      <h2
+        style={{
+          backgroundColor: "red",
+        }}
+      >
+        Hello react {name}
+      </h2>
+      <b id="bold_text">
+        {number}는 : {number % 2 === 0 ? "짝" : "홀"}
+      </b>
+      <MyFooter />
     </div>
   );
 }
