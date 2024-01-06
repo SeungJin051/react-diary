@@ -1,15 +1,20 @@
 import "./App.css";
+import Container from "./components/Container";
 import Counter from "./components/Counter";
 import MyFooter from "./components/MyFooter";
 import MyHeader from "./components/MyHeader";
 
 function App() {
+  const conuterProps = {
+    a: 1,
+  };
+
   return (
-    <div className="App">
+    <Container>
       <MyHeader />
-      <Counter />
+      <Counter {...conuterProps} />
       <MyFooter />
-    </div>
+    </Container>
   );
 }
 
