@@ -1,10 +1,10 @@
 import "./App.css";
-import DiaryEditor from "./components/DiaryEditor";
+import Recap from "./components/Recap";
 
 function App() {
   return (
     <div className="App">
-      <DiaryEditor />
+      <Recap />
     </div>
   );
 }
