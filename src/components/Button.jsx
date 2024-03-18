@@ -1,6 +1,11 @@
 export default function Button({ text, color, children }) {
   return (
-    <button style={{ color: color }}>
+    <button
+      onClick={() => {
+        console.log(text);
+      }}
+      style={{ color: color }}
+    >
       {text} - {color.toUpperCase()}
       {children}
     </button>
