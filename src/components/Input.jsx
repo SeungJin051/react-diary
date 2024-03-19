@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function Input() {
   const [input, setInput] = useState({
@@ -8,9 +8,19 @@ export default function Input() {
     bio: "",
   });
 
-  const onChange = (e) => {
-    console.log(e.target.name, e.target.value);
+  const onSubmit = () => {
+    if (input.name == "") {
+      // 이름을 입력해주세요
+      inputRef.current.focus();
+    }
+  };
 
+  const countRef = useRef(0);
+  const inputRef = useRef();
+
+  const onChange = (e) => {
+    countRef.current++;
+    console.log(countRef.current);
     // 객체를 만들어서 전달
     setInput({
       // 기존의 Input의 값을 유지
@@ -22,7 +32,14 @@ export default function Input() {
   return (
     <div>
       <div>
-        <input name="name" type="text" value={input.text} onChange={onChange} />
+        <input
+          // 돔요소가 inputRef에 저장
+          ref={inputRef}
+          name="name"
+          type="text"
+          value={input.text}
+          onChange={onChange}
+        />
       </div>
       <div>
         <input
@@ -43,6 +60,7 @@ export default function Input() {
       <div>
         <textarea name="bio" value={input.bio} onChange={onChange} />
       </div>
+      <button onClick={onSubmit}>제출</button>
     </div>
   );
 }
