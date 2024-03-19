@@ -1,10 +1,10 @@
 import "./App.css";
-import Input from "./components/Input";
+import HookExam from "./components/HookExam";
 
 function App() {
   return (
     <>
-      <Input />
+      <HookExam />
     </>
   );
 }
