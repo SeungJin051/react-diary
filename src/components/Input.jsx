@@ -1,36 +1,39 @@
 import { useState } from "react";
 
 export default function Input() {
-  const [text, setText] = useState("");
-  const [birth, setBirth] = useState("");
-  const [country, setCountry] = useState("");
-  const [bio, setBio] = useState("");
+  const [input, setInput] = useState({
+    name: "",
+    birth: "",
+    country: "",
+    bio: "",
+  });
 
-  const onChangeText = (e) => {
-    setText(e.target.value);
-  };
+  const onChange = (e) => {
+    console.log(e.target.name, e.target.value);
 
-  const onChangeBirth = (e) => {
-    setBirth(e.target.value);
+    // 객체를 만들어서 전달
+    setInput({
+      // 기존의 Input의 값을 유지
+      ...input,
+      // JS obj 새로운 객체를 만들면서 | 키 : 값 설정
+      [e.target.name]: e.target.value,
+    });
   };
-
-  const onChangeCountry = (e) => {
-    setCountry(e.target.value);
-  };
-  const onChangeBio = (e) => {
-    setBio(e.target.value);
-  };
-
   return (
     <div>
       <div>
-        <input type="text" value={text} onChange={onChangeText} />
+        <input name="name" type="text" value={input.text} onChange={onChange} />
       </div>
       <div>
-        <input onChange={onChangeBirth} type="date" value={birth} />
+        <input
+          name="birth"
+          onChange={onChange}
+          type="date"
+          value={input.birth}
+        />
       </div>
       <div>
-        <select value={country} onChange={onChangeCountry}>
+        <select name="country" value={input.country} onChange={onChange}>
           <option value=""></option>
           <option>한국</option>
           <option>미국</option>
@@ -38,9 +41,8 @@ export default function Input() {
         </select>
       </div>
       <div>
-        <textarea value={bio} onChange={onChangeBio} />
+        <textarea name="bio" value={input.bio} onChange={onChange} />
       </div>
-      {bio}
     </div>
   );
 }
