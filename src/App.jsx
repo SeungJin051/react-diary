@@ -1,10 +1,18 @@
 import "./App.css";
+import Controller from "./components/Controller";
+import Viewer from "./components/Viewer";
 
 function App() {
   return (
-    <>
-      <h1>React</h1>
-    </>
+    <div className="App">
+      <h1>Simple Counter</h1>
+      <section>
+        <Viewer />
+      </section>
+      <section>
+        <Controller />
+      </section>
+    </div>
   );
 }
 
