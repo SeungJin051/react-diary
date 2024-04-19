@@ -5,6 +5,7 @@ import New from "./pages/New"; // 2. "/new" : 새로운 일기를 작성하는 �
 import Diary from "./pages/Diary"; // 3. "/diary" : 일기를 상세히 조회하는 페이지
 import Notfound from "./pages/Notfound";
 
+import { getEmotionImage } from "./util/get-emotion-image"; //
 function App() {
   const nav = useNavigate();
 
@@ -18,6 +19,14 @@ function App() {
     // useNavigate : 페이지를 실제로 이동시키는 네비게이트 함수 반환 (form, button), 이벤트핸들러 특정조건 페이지 이동시 사용
 
     <>
+      <div>
+        <img src={getEmotionImage(1)} alt="emotion1" />
+        <img src={getEmotionImage(2)} alt="emotion2" />
+        <img src={getEmotionImage(3)} alt="emotion3" />
+        <img src={getEmotionImage(4)} alt="emotion4" />
+        <img src={getEmotionImage(5)} alt="emotion5" />
+      </div>
+
       <div>
         <Link to={"/"}>Home</Link>
         <Link to={"/new"}>New</Link>
