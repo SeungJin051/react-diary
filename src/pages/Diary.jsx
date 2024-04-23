@@ -7,3 +7,4 @@ const Diary = () => {
 };
 
 export default Diary;
+// 일기 상세 조회
