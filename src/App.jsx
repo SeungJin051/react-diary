@@ -22,7 +22,7 @@ const mockData = [
     content: "2번 일기 내용",
   },
 ];
-
+// 테스트;
 function reducer(state, action) {
   return state;
 }
